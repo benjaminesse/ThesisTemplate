@@ -1,0 +1,74 @@
+% This is the template file for a paper chapter
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+% Set chapter title. 
+% "Long title" is displayed as the chapter title
+% "Short title" is displayed in the table of contents
+% "Very short title" is displayed in the header. Careful this isn't wider than the page!
+\chapter[Short title]{Long title}
+\chaptermark{Very short title}
+\label{cha:label} % this label lets you refer to the chapter form the text
+
+% Include a table with the paper info for paper based chapters. Delete for normal chapters
+{\renewcommand{\arraystretch}{2.0} % Change the spacing between the rows
+	\begin{table}[h]
+		\begin{tabularx}{\textwidth}{>{\bfseries}r X}
+			
+			Authors: & Here goes the list of authors \\ 
+			Journal: & Here goes the journal, maybe with year, issue and pages \\  
+			\makecell[tr]{Publication \\ Date:} & Here goes the publication date \\
+			\makecell[tr]{Author \\ Contribution:} & Here goes the contribution of all the authors \\
+			
+		\end{tabularx}
+	\end{table}
+}
+
+A description about the paper goes here
+
+\clearpage % Start a new page after the paper info
+	
+This is where the chapter text goes... In-line references are done like this: \citet{Horvath2011}, while those with parenthesis are like this \citep{Horvath2011}.
+
+Here is Table \ref{ch2:tab:table1}
+
+\begin{table}[t]
+    
+    \caption[Short caption]{Long caption}
+    
+    \label{ch2:tab:table1}
+
+    \begin{tabular}{c c}
+    
+        \hline
+    
+         Title 1 & Title 2  \\
+         
+         \hline
+         
+         1       & 2        \\
+         2       & 4        \\
+         3       & 6        \\
+         4       & 8        \\
+         5       & 10       \\
+         
+         \hline
+     
+     
+    \end{tabular}
+
+\end{table}
+
+Here is Figure \ref{ch2:fig:figure1}.
+
+\begin{figure}[t]
+    \includegraphics[width=12cm]{"Figure_1"}
+	
+	\caption[Short caption]{Long caption}
+	
+	\label{ch2:fig:figure1}
+\end{figure}
+
+\biblio
+\end{document}
