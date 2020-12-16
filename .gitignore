@@ -1,0 +1,16 @@
+*.gz
+*.aux
+*.bbl
+*.bcf
+*.lof
+*.log
+*.lot
+*.out
+*.xml
+*.toc
+*.blg
+*.fls
+*.synctex*
+*.*latexmk
+*.pdf
+*Scratch*

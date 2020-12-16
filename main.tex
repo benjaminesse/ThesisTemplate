@@ -9,42 +9,42 @@
 \documentclass[12pt, twoside]{report}
 
 %% List of generic imports
-\usepackage[utf8]{inputenc}                %% Font encoding       
+\usepackage[utf8]{inputenc}                %% Font encoding
 \usepackage{graphicx}                      %% Importing graphics
-\usepackage{textcomp,gensymb}              %% Generic symbols            
+\usepackage{textcomp,gensymb}              %% Generic symbols
 \usepackage[hidelinks]{hyperref}           %% For hyperlinks
 \usepackage{amsmath}                       %% Improves maths
 \usepackage[english]{babel}                %% Set document language
+\usepackage{csquotes}                      %% Ensure quoted texts are typset correctly
 \usepackage{microtype}                     %% Helps text alignment
 \usepackage{setspace}                      %% Setting text line spacing
-%\usepackage[document]{ragged2e}            %% Left align text
+% \usepackage[document]{ragged2e}            %% Left align text
 \usepackage{fancyhdr}                      %% Nice headers
 \usepackage{siunitx}                       %% For units
 \usepackage{chemformula}                   %% For chemical formulae
 \usepackage{tabularx}                      %% For nice table alignment
 \usepackage{makecell}                      %% For table cell control
 \usepackage{blindtext}                     %% For filler text
+\usepackage{textgreek}                     %% For Greek symbols out of math mode
 \usepackage{booktabs}                      %% For nice tables
 \usepackage[toc,page]{appendix}            %% For an appendix
 \usepackage[useregional]{datetime2}        %% For dates
-%\usepackage{showframe}                     %% To show the text outline
+% \usepackage{showframe}                     %% To show the text outline
 
 \renewcommand{\arraystretch}{1.5}
 
 % Set up bibliography
-%\usepackage{doi}
-%\usepackage{natbib}
-\usepackage[backend=biber,style=authoryear,natbib=true,url=false,doi=true,eprint=false]{biblatex}
+\usepackage[backend=biber, style=apa, natbib=true, maxnames=2, minnames=1, uniquename=false]{biblatex}
 \addbibresource{references.bib}
 
 %% Setup the page layout
-\usepackage[a4paper, inner=40mm, outer=25mm, top=25mm, bottom=25mm]{geometry}  
+\usepackage[a4paper,inner=40mm,outer=25mm,top=25mm,bottom=25mm]{geometry}
 
 %% Set path to figures
 \graphicspath{ {figures/} {./} }
 
 %% Ensure the figures are centred
-\makeatletter %% changes the catcode of @ to 11 so changes can be made 
+\makeatletter %% changes the catcode of @ to 11 so changes can be made
 \g@addto@macro\@floatboxreset\centering
 \makeatother  %% changes the catcode of @ back to 12
 
@@ -66,19 +66,18 @@
 \newcommand{\matr}[1]{\bm{#1}}
 \newcommand*\dif{\mathop{}\!\mathrm{d}}
 
-%% Define \biblio command to print bib in subfiles when compiling separately
-%\def\biblio{\bibliographystyle{apalike2}\bibliography{references}}
-\def\biblio{\printbibliography}
+%% Setup siunitx
+\sisetup{output-open-uncertainty  = (,
+         output-close-uncertainty = ),
+         uncertainty-separator    = {\,}}
+\DeclareSIUnit{\molec}{molecules}
+\DeclareSIUnit{\molcm}{\molec\per\centi\meter\squared}
 
 %=========================================================================================
 %===================================== Front Matter ======================================
 %=========================================================================================
 
 \begin{document}
-
-%% Undefine the \biblio command for main compiles
-\def\biblio{}
-
 
 %% Add the title page
 \subfile{FrontMatter/TitlePage}
@@ -100,10 +99,9 @@
 \subfile{FrontMatter/Abstract}
 \subfile{FrontMatter/DeclarationAndCopyright}
 \subfile{FrontMatter/Acknowledgements}
-\subfile{FrontMatter/TheAuthor}
 
 %% Set the text spacing for the main document
-%\doublespacing
+% \doublespacing
 %% or
 \onehalfspacing
 
@@ -119,11 +117,6 @@
 %=========================================================================================
 
 %% Add the bibliography
-%\bibliography{references}
-%\bibliographystyle{apalike2}
 \printbibliography
-
-%\subfile{Chapters/appendices}
-
 
 \end{document}
