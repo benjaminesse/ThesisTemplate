@@ -1,40 +1,41 @@
-%% Main LaTeX file for the thesis. Sets up the page layout, bibliography, front matter and
-%% adds the chapters
+%% Main LaTeX file for the thesis. Sets up the page layout, bibliography, front
+%% matter and adds the chapters
 
-%=========================================================================================
-%======================================= Preamble ========================================
-%=========================================================================================
+% =============================================================================
+% Preamble
+% =============================================================================
 
 %% Set document class as two-sided report
 \documentclass[12pt, twoside]{report}
 
 %% List of generic imports
-\usepackage[utf8]{inputenc}                %% Font encoding
-\usepackage{graphicx}                      %% Importing graphics
-\usepackage{textcomp,gensymb}              %% Generic symbols
-\usepackage[hidelinks]{hyperref}           %% For hyperlinks
-\usepackage{amsmath}                       %% Improves maths
-\usepackage[english]{babel}                %% Set document language
-\usepackage{csquotes}                      %% Ensure quoted texts are typset correctly
-\usepackage{microtype}                     %% Helps text alignment
-\usepackage{setspace}                      %% Setting text line spacing
-% \usepackage[document]{ragged2e}            %% Left align text
-\usepackage{fancyhdr}                      %% Nice headers
-\usepackage{siunitx}                       %% For units
-\usepackage{chemformula}                   %% For chemical formulae
-\usepackage{tabularx}                      %% For nice table alignment
-\usepackage{makecell}                      %% For table cell control
-\usepackage{blindtext}                     %% For filler text
-\usepackage{textgreek}                     %% For Greek symbols out of math mode
-\usepackage{booktabs}                      %% For nice tables
-\usepackage[toc,page]{appendix}            %% For an appendix
-\usepackage[useregional]{datetime2}        %% For dates
-% \usepackage{showframe}                     %% To show the text outline
+\usepackage[utf8]{inputenc}          % Font encoding
+\usepackage{graphicx}                % Importing graphics
+\usepackage{textcomp,gensymb}        % Generic symbols
+\usepackage[hidelinks]{hyperref}     % For hyperlinks
+\usepackage{amsmath}                 % Improves maths
+\usepackage[english]{babel}          % Set document language
+\usepackage{csquotes}                % Ensure quoted texts are typset right
+\usepackage{microtype}               % Helps text alignment
+\usepackage{setspace}                % Setting text line spacing
+% \usepackage[document]{ragged2e}      % Left align text
+\usepackage{fancyhdr}                % Nice headers
+\usepackage{siunitx}                 % For units
+\usepackage{chemformula}             % For chemical formulae
+\usepackage{tabularx}                % For nice table alignment
+\usepackage{makecell}                % For table cell control
+\usepackage{blindtext}               % For filler text
+\usepackage{textgreek}               % For Greek symbols out of math mode
+\usepackage{booktabs}                % For nice tables
+\usepackage[toc,page]{appendix}      % For an appendix
+\usepackage[useregional]{datetime2}  % For dates
+% \usepackage{showframe}               % To show the text outline
 
 \renewcommand{\arraystretch}{1.5}
 
-% Set up bibliography
-\usepackage[backend=biber, style=apa, natbib=true, maxnames=2, minnames=1, uniquename=false, uniquelist=false]{biblatex}
+%% Set up bibliography
+\usepackage[backend=biber, style=apa, natbib=true, maxnames=2, minnames=1,
+            uniquename=false, uniquelist=false]{biblatex}
 \addbibresource{references.bib}
 
 %% Setup the page layout
@@ -44,9 +45,9 @@
 \graphicspath{ {figures/} {./} }
 
 %% Ensure the figures are centred
-\makeatletter %% changes the catcode of @ to 11 so changes can be made
+\makeatletter  % changes the catcode of @ to 11 so changes can be made
 \g@addto@macro\@floatboxreset\centering
-\makeatother  %% changes the catcode of @ back to 12
+\makeatother  % changes the catcode of @ back to 12
 
 %% Set paragraph spacing and indent
 \setlength{\parindent}{0em}
@@ -54,10 +55,10 @@
 
 %% Set up the header and footer
 \pagestyle{fancy}
-\fancyhead{}                  %% Clear the header
-\fancyhead[LE]{\leftmark}     %% Set even pages with chapter name on the left
-\fancyhead[RO]{\leftmark}     %% Set odd pages with chapter name on the right
-\setlength{\headheight}{15pt}
+\fancyhead{}                  % Clear the header
+\fancyhead[LE]{\leftmark}     % Set even pages with chapter name on the left
+\fancyhead[RO]{\leftmark}     % Set odd pages with chapter name on the right
+\setlength{\headheight}{16pt}
 
 %% Use the subfiles package to give the preamble to each subfile
 \usepackage{subfiles}
@@ -73,9 +74,9 @@
 \DeclareSIUnit{\molec}{molecules}
 \DeclareSIUnit{\molcm}{\molec\per\centi\meter\squared}
 
-%=========================================================================================
-%===================================== Front Matter ======================================
-%=========================================================================================
+% =============================================================================
+% Front Matter
+% =============================================================================
 
 \begin{document}
 
@@ -88,9 +89,7 @@
 %% Add the tables of contents, figures and tables, first turning off protrusion
 \microtypesetup{protrusion=false}
 \tableofcontents
-
 \textbf{Word count: Far Too Many}
-
 \listoffigures
 \listoftables
 \microtypesetup{protrusion=true}
@@ -105,9 +104,10 @@
 %% or
 \onehalfspacing
 
-%=========================================================================================
-%===================================== Main Document =====================================
-%=========================================================================================
+% =============================================================================
+% Main Document
+% =============================================================================
+
 
 \subfile{Chapters/ch1/introduction}
 \subfile{Chapters/ch2/chapter2}
