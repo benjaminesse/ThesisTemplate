@@ -4,10 +4,20 @@
 \begin{document}
 
 %% Set the Chapter title and short title
-\chapter[Short title]{Long title}
-\chaptermark{Very Short Title}
+\chapter[Short title for table of contents]{Long title for the actual chapter}
+\chaptermark{Very short title for page header}
 \label{cha:label1}
 
-Chapter text goes here...
+Chapter text goes here... This is an example for a normal thesis chapter to be use for introduction/conclusion chapters, as well as results chapters for non-by-publication theses. Here is a citation for Mie theory \citep{Mie1908}. Note that there is no separate bibliography for this chapter, so this reference will only exist in the final bibliography.
+
+Here is an example of a figure. Figure \ref{ch1:fig:figure1} shows some random numbers.
+
+\begin{figure}[h]
+    \includegraphics[width=12cm]{"Figure_1"}
+
+	\caption[Short caption for list of figures]{Long caption to go with the figure.}
+
+	\label{ch1:fig:figure1}
+\end{figure}
 
 \end{document}

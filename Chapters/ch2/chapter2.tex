@@ -7,8 +7,8 @@
 % "Long title" is displayed as the chapter title
 % "Short title" is displayed in the table of contents
 % "Very short title" is displayed in the header. Careful this isn't wider than the page!
-\chapter[Short title]{Long title}
-\chaptermark{Very short title}
+\chapter[Short title for table of contents]{Long title for the actual chapter}
+\chaptermark{Very short title for page header}
 \label{cha:label} % this label lets you refer to the chapter form the text
 
 % Include a table with the paper info for paper based chapters. Delete for normal chapters
@@ -25,17 +25,27 @@
 	\end{table}
 }
 
-A description about the paper goes here
+% Start a new page after the paper info
+\clearpage
+
+\section*{Paper Summary}
+
+A description of the paper goes here.
 
 \clearpage % Start a new page after the paper info
 
-This is where the chapter text goes... In-line references are done like this: \citet{Horvath2011}, while those with parenthesis are like this \citep{Horvath2011}.
+% Begin the reference section. This allows a separate bibliography at the end
+% of the paper chapter. Use refsegment to include references in final
+% bibliography and refsection to only include in the chapter bibliography
+\begin{refsegment}
+
+This is where the chapter text goes... In-line references are done like this: \citet{Horvath2011}, while those with parenthesis are like this \citep{Horvath2011}. Note these references will exist in both the chapter and main bibliographies.
 
 Here is Table \ref{ch2:tab:table1}
 
-\begin{table}[t]
+\begin{table}[h]
 
-    \caption[Short caption]{Long caption}
+    \caption[Short caption for the List of Tables]{Long caption to go with the table.}
 
     \label{ch2:tab:table1}
 
@@ -60,14 +70,8 @@ Here is Table \ref{ch2:tab:table1}
 
 \end{table}
 
-Here is Figure \ref{ch2:fig:figure1}.
-
-\begin{figure}[t]
-    \includegraphics[width=12cm]{"Figure_1"}
-
-	\caption[Short caption]{Long caption}
-
-	\label{ch2:fig:figure1}
-\end{figure}
+% Print the chapter bibliography. Remove the options if using refsection
+\printbibliography[segment=\the\value{refsegment}]
+\end{refsegment}
 
 \end{document}
